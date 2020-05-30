@@ -1,0 +1,24 @@
+{
+  "name": "project-2-quiz-generator",
+  "version": "1.0.0",
+  "description": "a web application that generates quizes based on user input",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss css/tailwind.css -o public/build/tailwind.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolinay1/project-2-quiz-generator.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dolinay1/project-2-quiz-generator/issues"
+  },
+  "homepage": "https://github.com/dolinay1/project-2-quiz-generator#readme",
+  "dependencies": {
+    "autoprefixer": "^9.8.0",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.4.6"
+  }
+}
