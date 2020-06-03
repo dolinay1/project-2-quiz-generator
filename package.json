@@ -18,13 +18,14 @@
   "homepage": "https://github.com/dolinay1/project-2-quiz-generator#readme",
   "dependencies": {
     "autoprefixer": "^9.8.0",
+    "bcryptjs": "2.4.3",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "mysql2": "^2.1.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "postcss-cli": "^7.1.1",
     "sequelize": "^5.21.11",
-    "tailwindcss": "^1.4.6",
-    "passport-local": "^1.0.0",
-    "passport": "^0.4.0",
-    "bcryptjs": "2.4.3"
+    "tailwindcss": "^1.4.6"
   }
 }
