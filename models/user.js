@@ -4,15 +4,9 @@ const bcrypt = require("bcryptjs");
 module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define("User", {
 
-    userID: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
-    },
     adminID: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
     },
     adminUser: {
       type: DataTypes.BOOLEAN,
@@ -26,7 +20,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    // The password cannot be null
     password: {
       type: DataTypes.STRING,
       allowNull: false
@@ -52,6 +45,20 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
   });
+
+  User.associate = function (models) {
+    // Associating User with Quizzes
+    // When an Author is deleted, also delete any associated results
+    
+    User.hasMany(models.Quizzes, {
+      onDelete: "cascade"
+
+    });
+    User.hasMany(models.Results, {
+      onDelete: "cascade"
+    });
+  };
+
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
@@ -60,7 +67,7 @@ module.exports = function (sequelize, DataTypes) {
   // In this case, before a User is created, we will automatically hash their password
   User.addHook("beforeCreate", user => {
     user.password = bcrypt.hashSync(
-      user.password,
+      URLSearchParams.password,
       bcrypt.genSaltSync(10),
       null
     );
