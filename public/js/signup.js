@@ -3,7 +3,6 @@ $(document).ready(() => {
   const signUpForm = $("form.signup");
   // const adminIDInput = $('#adminID-input option:selected').val();
   // const adminUserInput = $("input#adminUser-input");
-  // const activeUserInput = $("input#activeUser-input");
   const usernameInput = $("input#username-input");
   const passwordInput = $("input#password-input");
   const firstNameInput = $("input#firstName-input");
@@ -16,7 +15,6 @@ $(document).ready(() => {
   signUpForm.on("submit", event => {
     event.preventDefault();
     const userData = {
-
       username: usernameInput.val().trim(),
       password: passwordInput.val().trim(),
       firstName: firstNameInput.val().trim(),
@@ -29,7 +27,6 @@ $(document).ready(() => {
     }
     // If we have an username and password, run the signUpUser function
     signUpUser(userData.username, userData.password, userData.firstName, userData.lastName, userData.middleInitial);
-
     usernameInput.val("");
     passwordInput.val("");
     firstNameInput.val("")
@@ -43,7 +40,6 @@ $(document).ready(() => {
     $.post("/api/signup", {
       // adminID: adminID,
       // adminUser: adminUser,
-      // activeUser: activeUser,
       username: username,
       password: password,
       firstName: firstName,
@@ -53,7 +49,8 @@ $(document).ready(() => {
       // state: state
     })
       .then(() => {
-        window.location.replace("/members");
+
+        window.location.replace("/adminDashboard");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
