@@ -7,16 +7,20 @@ module.exports = function (sequelize, DataTypes) {
     adminID: {
       type: DataTypes.INTEGER,
       allowNull: true,
+      references: {
+        model: 'users',
+        key: 'ID',
+      }
     },
     adminUser: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: true
     },
     activeUser: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: true
     },
-    userName: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -26,30 +30,30 @@ module.exports = function (sequelize, DataTypes) {
     },
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     middleInitial: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     state: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
   });
 
   User.associate = function (models) {
     // Associating User with Quizzes
-    // When an Author is deleted, also delete any associated results
-    
+    // When an User is deleted, also delete any associated quizzes and results
+
     User.hasMany(models.Quizzes, {
       onDelete: "cascade"
 
@@ -67,6 +71,7 @@ module.exports = function (sequelize, DataTypes) {
   // In this case, before a User is created, we will automatically hash their password
   User.addHook("beforeCreate", user => {
     user.password = bcrypt.hashSync(
+      user.password,
       URLSearchParams.password,
       bcrypt.genSaltSync(10),
       null

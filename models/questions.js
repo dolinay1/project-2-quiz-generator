@@ -1,19 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
     var Questions = sequelize.define("Questions", {
-        // questionID: {
-        //     type: DataTypes.INTEGER,
-        //     primaryKey: true,
-        //     autoIncrement: true,
-        //     allowNull: false
-        // },
-        // quizID: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: "quizzes",
-        //         key: "quizID"
-        //     }
-        // },
         question: {
             type: DataTypes.STRING,
             allowNull: false
