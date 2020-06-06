@@ -16,10 +16,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    activeUser: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    },
     username: {
       type: DataTypes.STRING,
       allowNull: false
