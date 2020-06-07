@@ -1,0 +1,35 @@
+<div class="border bg-white shadow-lg px-2 py-3 w-auto m-64 grid grid-cols-2 gap-4 w-full max-w-md max-auto mx-auto">
+    <div class="col-span-1">
+        <form class="login">
+            <!-- Username input -->
+            <label class="block ">
+                <span class="text-gray-700">Username</span>
+                <input type="text" class="form-input mt-1 block w-full" placeholder="my username" id="username-input">
+            </label>
+
+            <div>
+                <!-- Password input -->
+                <label class="block">
+                    <span class="text-gray-700">Password</span>
+                    <input type="password" class="form-input mt-1 block w-full" placeholder="my password"
+                        id="password-input">
+                </label>
+
+                <!-- Submit and Cancel buttons -->
+                <div class="m-2 flex justify-center">
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1">
+                        Login
+                    </button>
+                    <button id="createAccountBtn" type="button"
+                        class="bg-teal-300 hover:bg-teal-500 px-2 py-2 rounded-lg m-1">
+                        Create an account
+                    </button>
+                </div>
+        </form>
+    </div>
+    <div class="col-span-1">
+
+    </div>
+</div>
+
+<script src="../../js/login.js"></script>

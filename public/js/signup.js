@@ -1,4 +1,5 @@
 $(document).ready(() => {
+
   // Getting references to our form and input
   const signUpForm = $("form.signup");
   // const adminIDInput = $('#adminID-input option:selected').val();
@@ -50,11 +51,16 @@ $(document).ready(() => {
     })
       .then(() => {
 
-        window.location.replace("/adminDashboard");
+        window.location.replace("/members");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
   }
+
+  // Cancel button
+  $("#cancelBtn").on("click", function () {
+    window.location.replace("/");
+  })
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);

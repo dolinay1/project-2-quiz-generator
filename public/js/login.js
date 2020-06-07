@@ -10,7 +10,6 @@ $(document).ready(() => {
     const userData = {
       username: usernameInput.val().trim(),
       password: passwordInput.val().trim()
-
     };
 
     if (!userData.username || !userData.password) {
@@ -37,4 +36,10 @@ $(document).ready(() => {
         console.log(err);
       });
   }
+
+  // Redirect the user to the signup page when clicking the "create account" button
+  $("#createAccountBtn").on("click", function () {
+    const url = "/signup";
+    $(location).attr('href', url);
+  });
 });
