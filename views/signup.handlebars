@@ -1,0 +1,146 @@
+<div class="border bg-white shadow-lg px-2 py-3 m-4 grid grid-cols-3 gap-4">
+    <div class="col-span-2">
+        <form class="signup">
+            <!-- Account type radio buttons -->
+            <div class="mt-4">
+                <span class="text-gray-700">Account Type</span>
+                <div class="mt-2">
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio" name="accountType" value="quizMaster">
+                        <span class="ml-2">Quiz Master</span>
+                    </label>
+                    <label class="inline-flex items-center ml-6">
+                        <input type="radio" class="form-radio" name="accountType" value="quizTaker">
+                        <span class="ml-2">Quiz Taker</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Username input -->
+            <label class="block ">
+                <span class="text-gray-700">Username</span>
+                <input class="form-input mt-1 block w-full" placeholder="my username" id="username-input">
+            </label>
+
+            <div>
+                <!-- Password input -->
+                <label class="block">
+                    <span class="text-gray-700">Password</span>
+                    <input class="form-input mt-1 block w-1/2" placeholder="my password" id="password-input">
+                </label>
+
+                <!-- Confirm password input -->
+                <label class="block">
+                    <span class="text-gray-700">Confirm Password</span>
+                    <input class="form-input mt-1 block w-1/2" placeholder="repeat my password">
+                </label>
+            </div>
+
+            <!-- First name input -->
+            <label class="block">
+                <span class="text-gray-700">First Name</span>
+                <input class="form-input mt-1 block w-full" placeholder="John" id="firstName-input">
+            </label>
+
+            <!-- Middle initial input -->
+            <label class="block">
+                <span class="text-gray-700">Middle Initial</span>
+                <input class="form-input mt-1 block w-full" placeholder="C." id="lastName-input">
+            </label>
+
+            <!-- Last name input -->
+            <label class="block">
+                <span class="text-gray-700">Last Name</span>
+                <input class="form-input mt-1 block w-full" placeholder="Doe" id="middleInitial-input">
+            </label>
+
+            <!-- City input -->
+            <label class="block">
+                <span class="text-gray-700">City</span>
+                <input class="form-input mt-1 block w-full" placeholder="My city" id="city-input">
+            </label>
+
+            <!-- State selection drop-down menu -->
+            <label class="block mt-4">
+                <span class="text-gray-700">State</span>
+                <select class="form-select mt-1 block w-full" id="state-input">
+                    <option>AL</option>
+                    <option>AK</option>
+                    <option>AZ</option>
+                    <option>AR</option>
+                    <option>CA</option>
+                    <option>CO</option>
+                    <option>CT</option>
+                    <option>DE</option>
+                    <option>FL</option>
+                    <option>GA</option>
+                    <option>HI</option>
+                    <option>ID</option>
+                    <option>IL</option>
+                    <option>IN</option>
+                    <option>IA</option>
+                    <option>KS</option>
+                    <option>KY</option>
+                    <option>LA</option>
+                    <option>ME</option>
+                    <option>MD</option>
+                    <option>MA</option>
+                    <option>MI</option>
+                    <option>MN</option>
+                    <option>MS</option>
+                    <option>MO</option>
+                    <option>MT</option>
+                    <option>NE</option>
+                    <option>NV</option>
+                    <option>NH</option>
+                    <option>NJ</option>
+                    <option>NM</option>
+                    <option>NY</option>
+                    <option>NV</option>
+                    <option>ND</option>
+                    <option>OH</option>
+                    <option>OK</option>
+                    <option>OR</option>
+                    <option>PA</option>
+                    <option>RI</option>
+                    <option>SC</option>
+                    <option>SD</option>
+                    <option>TN</option>
+                    <option>TX</option>
+                    <option>UT</option>
+                    <option>VT</option>
+                    <option>VA</option>
+                    <option>WA</option>
+                    <option>WV</option>
+                    <option>WI</option>
+                    <option>WY</option>
+                </select>
+            </label>
+
+            <!-- Submit and Cancel buttons -->
+            <div class="m-2 flex justify-center">
+                <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1">
+                    Submit
+                </button>
+                <button type="button" class="bg-teal-300 hover:bg-teal-500 px-6 py-2 rounded-lg m-1" id="cancelBtn">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="col-span-1">
+        <!-- Profile photo place holder -->
+        <img src="/img/profilePic.png" alt="Generic profile photo" class="h-auto w-auto">
+
+        <!-- Add profile photo button -->
+        <div class="m-2">
+            <button class="bg-teal-300 hover:bg-teal-500 px-6 py-2 rounded-lg w-full">
+                Add photo
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/signup.js"></script>
