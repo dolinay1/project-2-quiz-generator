@@ -1,0 +1,72 @@
+<!-- title -->
+<div class="border bg-white shadow-lg px-2 py-3 m-4 rounded-lg">
+    <div class="grid grid-cols-3">
+        <div>
+            <p>Create a New Quiz</p>
+        </div>
+
+        <div></div>
+        <!-- Back to dashboard button -->
+        <div class="ml-auto">
+            <button class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="backDashBtn">Back to
+                Dashboard</button>
+        </div>
+    </div>
+    <br>
+    <form class="createQuiz">
+        <!-- Quiz details section -->
+        <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
+            <p>Quiz details</p>
+            <div class="grid grid-cols-3 gap-2">
+                <!-- Quiz name -->
+                <div>
+                    <label class="block ">
+                        <span class="text-gray-700">Quiz Name</span>
+                        <input type="text" class="form-input mt-1 block w-full" placeholder="Choose a name"
+                            id="quizName-input">
+                    </label>
+                </div>
+                <!-- Quiz category -->
+                <div>
+                    <label class="block">
+                        <span class="text-gray-700">Category</span>
+                        <select class="form-select block w-full mt-1" id="quizCat-input">
+                            <option value="Math">Math</option>
+                            <option value="Science">Science</option>
+                            <option value="Lego">Lego!!!!</option>
+                        </select>
+                    </label>
+                </div>
+                <!-- Question count -->
+                <div>
+                    <label class="block">
+                        <span class="text-gray-700">Quesion Count</span>
+                        <select class="form-select block w-full mt-1" id="questionCount-input">
+                            <option val="5">5</option>
+                            <option val="10">10</option>
+                            <option val="15">15</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question and answers section -->
+        <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
+            <p>Question and aswers</p>
+
+
+            <div class="qContainer"></div>
+
+            <!-- Create quiz button -->
+            <div class="ml-auto">
+                <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="createQuizBtn">
+                    Create Quiz
+                </button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<script src="../../js/createQuiz.js"></script>
