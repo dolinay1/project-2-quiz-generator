@@ -12,25 +12,21 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 // Routes
 // =============================================================
 module.exports = function (app) {
-
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
-    if (req.userAdmin > 0) {
-      res.redirect("/adminDashboard");
+    if (req.user) {
+      //need to add logic to redirect users to correct dashboard
+      res.render("login");
     }
-    else if (req.userAdmin < 1) {
-      res.redirect("/userDashboard");
-    }
+
     res.render("login");
   });
 
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
-    if (req.userAdmin > 0) {
-      res.redirect("/adminDashboard");
-    }
-    else if (req.userAdmin < 1) {
-      res.redirect("/userDashboard");
+    if (req.user) {
+      //need to add logic to redirect users to correct dashboard
+      res.redirect("login");
     }
     res.render("login");
   });
@@ -38,6 +34,7 @@ module.exports = function (app) {
   app.get("/signup", (req, res) => {
     res.render("signup")
   })
+
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/adminDashboard", isAuthenticated, (req, res) => {
