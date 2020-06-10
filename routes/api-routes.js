@@ -11,7 +11,7 @@ module.exports = function (app) {
     res.json({
       username: req.user.username,
       id: req.user.id,
-      adminUser: req.user.userAdmin
+      adminUser: req.user.adminUser
     });
   });
 
@@ -47,6 +47,7 @@ module.exports = function (app) {
       category: req.body.category,
       questionCount: req.body.questionCount,
       UserId: req.user.id
+
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -74,8 +75,10 @@ module.exports = function (app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         username: req.user.username,
-        id: req.user.id
+        id: req.user.id,
+        adminUser: req.user.adminUser
       });
+      console.log(req.user.adminUser)
     }
   });
 };

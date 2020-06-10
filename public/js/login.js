@@ -23,21 +23,24 @@ $(document).ready(() => {
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(username, password, userAdmin) {
+  function loginUser(username, password) {
     $.post("/api/login", {
       username: username,
       password: password,
-      userAdmin: userAdmin
     })
       .then(() => {
-        if (userAdmin > 0) {
-          window.location.replace("/adminDashboard");
-          // If there's an error, log the error
-        }
-        else {
-          window.location.replace("/userDashboard");
-          // If there's an error, log the error
-        }
+        $.get("/api/user_data").then(data => {
+          if (data.adminUser === true) {
+            window.location.replace("/adminDashboard");
+            console.log(data.adminUser)
+            // If there's an error, log the error
+          }
+          else {
+            window.location.replace("/userDashboard");
+            console.log(data.adminUser)
+            // If there's an error, log the error
+          }
+        });
       })
       .catch(err => {
         console.log(err);
@@ -49,3 +52,4 @@ $(document).ready(() => {
     window.location.replace("/signup");
   });
 });
+
