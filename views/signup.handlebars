@@ -1,11 +1,26 @@
 <div class="border bg-white shadow-lg px-2 py-3 m-4 grid grid-cols-3 gap-4">
     <div class="col-span-2">
         <form class="signup">
-            <!-- Check box for admin account -->
+            <!-- Dropdown for admin user -->
             <div class="mb-2">
                 <label class="inline-flex items-center">
-                    <span class="mr-2 text-gray-700">Check to create Quiz Master account</span>
-                    <input type="checkbox" class="form-checkbox text-teal-500">
+                    <span class="mr-2 text-gray-700">Is this an Admin Account?</span>
+                    <Select id="adminUser-input" name="adminUser">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- Dropdown for admin account id -->
+            <div class="mb-2">
+                <label class="inline-flex items-center">
+                    <span class="mr-2 text-gray-700">Is this an Admin Account?</span>
+                    <Select id="adminID-input" name="adminID-input">
+                        <option value="">Select an admin</option>
+                        <option value="1">admin1</option>
+                        <option value="2">admin2</option>
+                    </select>
                 </label>
             </div>
 

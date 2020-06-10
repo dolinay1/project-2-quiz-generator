@@ -23,14 +23,21 @@ $(document).ready(() => {
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(username, password) {
+  function loginUser(username, password, userAdmin) {
     $.post("/api/login", {
       username: username,
-      password: password
+      password: password,
+      userAdmin: userAdmin
     })
       .then(() => {
-        window.location.replace("/members");
-        // If there's an error, log the error
+        if (userAdmin > 0) {
+          window.location.replace("/adminDashboard");
+          // If there's an error, log the error
+        }
+        else {
+          window.location.replace("/userDashboard");
+          // If there's an error, log the error
+        }
       })
       .catch(err => {
         console.log(err);
