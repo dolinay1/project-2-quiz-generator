@@ -1,24 +1,25 @@
 <div class="border bg-white shadow-lg px-2 py-3 m-4 grid grid-cols-3 gap-4">
     <div class="col-span-2">
         <form class="signup">
-            <!-- Drop down for admin account -->
+            <!-- Dropdown for admin user -->
             <div class="mb-2">
-                <label class="block">
-                    <span class="text-gray-700">Is this an admin account?</span>
-                    <select class="form-select block w-full mt-1" id="adminBoolean-input">
-                        <option val="1">yes</option>
-                        <option val="0">no</option>
+                <label class="inline-flex items-center">
+                    <span class="mr-2 text-gray-700">Is this an Admin Account?</span>
+                    <Select id="adminUser-input" name="adminUser">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
                     </select>
                 </label>
             </div>
 
-            <!-- Drop down for admin account -->
+            <!-- Dropdown for admin account id -->
             <div class="mb-2">
-                <label class="block">
-                    <span class="text-gray-700">Select your Quiz Master</span>
-                    <select class="form-select block w-full mt-1" id="adminUser-input">
-                        <option val="1">Quiz Master 1</option>
-                        <option val="2">Quiz Master 2</option>
+                <label class="inline-flex items-center">
+                    <span class="mr-2 text-gray-700">Is this an Admin Account?</span>
+                    <Select id="adminID-input" name="adminID-input">
+                        <option value="">Select an admin</option>
+                        <option value="1">admin1</option>
+                        <option value="2">admin2</option>
                     </select>
                 </label>
             </div>

@@ -1,4 +1,4 @@
-<!-- title -->
+{{!-- title --}}
 <div class="border bg-white shadow-lg px-2 py-3 m-4 rounded-lg">
     <div class="grid grid-cols-3">
         <div>
@@ -6,19 +6,20 @@
         </div>
 
         <div></div>
-        <!-- Back to dashboard button -->
+        {{!-- Back to dashboard button --}}
         <div class="ml-auto">
             <button class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="backDashBtn">Back to
                 Dashboard</button>
         </div>
     </div>
     <br>
+
     <form class="createQuiz">
-        <!-- Quiz details section -->
+        {{!-- Quiz details section --}}
         <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
             <p>Quiz details</p>
             <div class="grid grid-cols-3 gap-2">
-                <!-- Quiz name -->
+                {{!-- Quiz name --}}
                 <div>
                     <label class="block ">
                         <span class="text-gray-700">Quiz Name</span>
@@ -26,7 +27,8 @@
                             id="quizName-input">
                     </label>
                 </div>
-                <!-- Quiz category -->
+
+                {{!-- Quiz category --}}
                 <div>
                     <label class="block">
                         <span class="text-gray-700">Category</span>
@@ -37,7 +39,8 @@
                         </select>
                     </label>
                 </div>
-                <!-- Question count -->
+
+                {{!-- Question count --}}
                 <div>
                     <label class="block">
                         <span class="text-gray-700">Quesion Count</span>
@@ -49,31 +52,23 @@
                     </label>
                 </div>
             </div>
-            <!-- Create quiz button -->
-            <div class="ml-auto">
-                <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1 mt-2"
-                    id="createQuizBtn">
-                    Create Quiz
-                </button>
-            </div>
-        </div>
+
+            {{!-- Question and answers section --}}
+            <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
+                <p>Question and aswers</p>
+
+                {{!-- Container to be rendered with the question boxes --}}
+                <div class="qContainer"></div>
+
+                {{!-- Create quiz button --}}
+                <div class="ml-auto">
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1"
+                        id="createQuizBtn">
+                        Submit Questions
+                    </button>
+                </div>
     </form>
-
-    <!-- Question and answers section -->
-    <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
-        <p>Question and aswers</p>
-
-
-        <div class="qContainer"></div>
-
-        <!-- Create quiz button -->
-        <div class="ml-auto">
-            <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="createQuizBtn">
-                Create Quiz
-            </button>
-        </div>
-
-    </div>
+</div>
 
 </div>
 

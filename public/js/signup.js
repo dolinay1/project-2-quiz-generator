@@ -1,5 +1,4 @@
 $(document).ready(() => {
-
   // Getting references to our form and input
   const signUpForm = $("form.signup");
 
@@ -9,26 +8,23 @@ $(document).ready(() => {
   const firstNameInput = $("input#firstName-input");
   const lastNameInput = $("input#lastName-input");
   const middleInitialInput = $("input#middleInitial-input");
-  const cityInput = $("input#city-input");
-  // const stateInput = $("input#state-input");
+  const cityInput = $("#city-input");
+  const stateInput = $("#state-input");
 
   // When the signup button is clicked, we validate the username and password are not blank
   signUpForm.on("submit", event => {
     event.preventDefault();
 
-    const adminBoolean = parseInt($("#adminBoolean-input option:selected").val());
-    const adminUser = $("adminUser-input option:selected").val();
-    const qState = $("#state-input option:selected").text();
-
     const userData = {
-      adminID: adminBoolean,
+      adminID: parseInt($("#adminID-input option:selected").val()) || 0,
+      adminUser: parseInt($("#adminUser-input option:selected").val()),
       username: usernameInput.val().trim(),
       password: passwordInput.val().trim(),
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
       middleInitial: middleInitialInput.val().trim(),
-      city: cityInput.val().trim(),
-      state: qState
+      city: cityInput.val(),
+      state: $("#state-input option:selected").text()
     };
 
     if (!userData.username || !userData.password) {
@@ -36,44 +32,35 @@ $(document).ready(() => {
     }
     // If we have an username and password, run the signUpUser function
     signUpUser(userData);
+    $("#adminID-input option:selected").val("");
+    $("#adminUser-input option:selected").val("");
     usernameInput.val("");
     passwordInput.val("");
-    firstNameInput.val("")
-    lastNameInput.val("")
-    middleInitialInput.val("")
-    cityInput.val("")
+    firstNameInput.val("");
+    lastNameInput.val("");
+    middleInitialInput.val("");
+    cityInput.val("");
+    stateInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function signUpUser(userData) {
-    $.post("/api/signup", {
-      adminID: adminID,
-      // adminUser: adminUser,
-      username: username,
-      password: password,
-      firstName: firstName,
-      lastName: lastName,
-      middleInitial: middleInitial,
-      city: city,
-      state: state
-    })
+    $.post("/api/signup", userData)
       .then(() => {
+        if (userData.adminUser > 0) {
+          window.location.replace("/adminDashboard");
+        } else {
+          window.location.replace("/userDashboard");
+        }
 
-        window.location.replace("/members");
+        // If there's an error, handle it by throwing up a bootstrap alert
       })
-      // If there's an error, handle it by throwing up an alert
       .catch(handleLoginErr);
   }
 
-  // Error handling
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
-
-  // Cancel button
-  $("#cancelBtn").on("click", function () {
-    window.location.replace("/");
-  })
 });
