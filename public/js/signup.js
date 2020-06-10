@@ -2,7 +2,7 @@ $(document).ready(() => {
 
   // Getting references to our form and input
   const signUpForm = $("form.signup");
-  // const adminIDInput = $('#adminID-input option:selected').val();
+
   // const adminUserInput = $("input#adminUser-input");
   const usernameInput = $("input#username-input");
   const passwordInput = $("input#password-input");
@@ -16,9 +16,12 @@ $(document).ready(() => {
   signUpForm.on("submit", event => {
     event.preventDefault();
 
+    const adminBoolean = parseInt($("#adminBoolean-input option:selected").val());
+    const adminUser = $("adminUser-input option:selected").val();
     const qState = $("#state-input option:selected").text();
 
     const userData = {
+      adminID: adminBoolean,
       username: usernameInput.val().trim(),
       password: passwordInput.val().trim(),
       firstName: firstNameInput.val().trim(),
@@ -32,7 +35,7 @@ $(document).ready(() => {
       return;
     }
     // If we have an username and password, run the signUpUser function
-    signUpUser(userData.username, userData.password, userData.firstName, userData.lastName, userData.middleInitial, userData.city, userData.state);
+    signUpUser(userData);
     usernameInput.val("");
     passwordInput.val("");
     firstNameInput.val("")
@@ -43,9 +46,9 @@ $(document).ready(() => {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(username, password, firstName, lastName, middleInitial, city, state) {
+  function signUpUser(userData) {
     $.post("/api/signup", {
-      // adminID: adminID,
+      adminID: adminID,
       // adminUser: adminUser,
       username: username,
       password: password,
@@ -54,7 +57,6 @@ $(document).ready(() => {
       middleInitial: middleInitial,
       city: city,
       state: state
-      // state: state
     })
       .then(() => {
 
