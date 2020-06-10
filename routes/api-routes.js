@@ -50,13 +50,19 @@ module.exports = function (app) {
 
     })
       .then(() => {
-        res.redirect(307, "/api/login");
         console.log("done");
       })
       .catch(err => {
         console.error(err);
         res.status(401).json(err);
       });
+  })
+
+  // Route for creating questions:
+  app.post("/api/createQuestions", (req, res) => {
+    db.Questions.create({
+      question: req.body.question,
+    })
   })
 
   // Route for logging user out

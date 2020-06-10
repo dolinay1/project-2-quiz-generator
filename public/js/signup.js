@@ -1,6 +1,8 @@
 $(document).ready(() => {
   // Getting references to our form and input
   const signUpForm = $("form.signup");
+
+  // const adminUserInput = $("input#adminUser-input");
   const usernameInput = $("input#username-input");
   const passwordInput = $("input#password-input");
   const firstNameInput = $("input#firstName-input");
@@ -12,6 +14,7 @@ $(document).ready(() => {
   // When the signup button is clicked, we validate the username and password are not blank
   signUpForm.on("submit", event => {
     event.preventDefault();
+
     const userData = {
       adminID: parseInt($("#adminID-input option:selected").val()) || 0,
       adminUser: parseInt($("#adminUser-input option:selected").val()),
@@ -21,7 +24,7 @@ $(document).ready(() => {
       lastName: lastNameInput.val().trim(),
       middleInitial: middleInitialInput.val().trim(),
       city: cityInput.val(),
-      state: stateInput.val()
+      state: $("#state-input option:selected").text()
     };
 
     if (!userData.username || !userData.password) {
@@ -43,10 +46,7 @@ $(document).ready(() => {
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function signUpUser(userData) {
-    console.log(userData)
-    $.post("/api/signup",
-      userData
-    )
+    $.post("/api/signup", userData)
       .then(() => {
         if (userData.adminUser > 0) {
           window.location.replace("/adminDashboard");
