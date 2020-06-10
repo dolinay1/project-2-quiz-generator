@@ -15,16 +15,22 @@ module.exports = function (app) {
 
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
+    if (req.userAdmin > 0) {
+      res.redirect("/adminDashboard");
+    }
+    else if (req.userAdmin < 1) {
+      res.redirect("/userDashboard");
     }
     res.render("login");
   });
 
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
+    if (req.userAdmin > 0) {
+      res.redirect("/adminDashboard");
+    }
+    else if (req.userAdmin < 1) {
+      res.redirect("/userDashboard");
     }
     res.render("login");
   });
@@ -32,14 +38,18 @@ module.exports = function (app) {
   app.get("/signup", (req, res) => {
     res.render("signup")
   })
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/adminDashboard", isAuthenticated, (req, res) => {
+    res.render("adminDashboard")
+  })
+
+  app.get("/userDashboard", isAuthenticated, (req, res) => {
+    res.render("userDashboard")
+  })
 
   app.get("/createQuiz", isAuthenticated, (req, res) => {
     res.render("createQuiz");
   })
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.render("adminDashboard");
-  });
 };

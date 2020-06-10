@@ -7,10 +7,6 @@ module.exports = function (sequelize, DataTypes) {
     adminID: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: 'users',
-        key: 'ID',
-      }
     },
     adminUser: {
       type: DataTypes.BOOLEAN,
