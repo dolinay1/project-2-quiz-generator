@@ -40,16 +40,19 @@ module.exports = function (app) {
 
   // Route for creating a quiz:
   app.post("/api/createQuiz", (req, res) => {
+    console.log(req.user);
     db.Quizzes.create({
       quizName: req.body.quizName,
       category: req.body.category,
-      questionCount: req.body.questionCount
+      questionCount: req.body.questionCount,
+      UserId: req.user.id
     })
       .then(() => {
         // res.redirect(307, "/members");
         console.log("done");
       })
       .catch(err => {
+        console.error(err);
         res.status(401).json(err);
       });
   })
