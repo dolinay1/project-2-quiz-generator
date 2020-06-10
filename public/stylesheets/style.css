@@ -2,3 +2,16 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+* {
+  font-family: 'Baloo Chettan 2', cursive;
+}
+
+.footer-divider {
+  background-color: rgb(148, 224, 98);
+}
+
+.screen-height {
+  height: 90vh;
+  overflow: auto;
+}
