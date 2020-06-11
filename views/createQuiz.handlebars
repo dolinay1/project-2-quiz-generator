@@ -17,6 +17,7 @@
         {{!-- Quiz details section --}}
         <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
             <p>Quiz details</p>
+            <br>
             <div class="grid grid-cols-3 gap-2">
                 {{!-- Quiz name --}}
                 <div>
@@ -44,43 +45,176 @@
                     <label class="block">
                         <span class="text-gray-700">Quesion Count</span>
                         <select class="form-select block w-full mt-1" id="questionCount-input">
-                            <option val="5">5</option>
-                            <option val="10">10</option>
-                            <option val="15">15</option>
+                            <option val="3">3</option>
+                            {{!-- <option val="10">10</option>
+                            <option val="15">15</option> --}}
                         </select>
                     </label>
                 </div>
             </div>
             {{!-- Create Quiz button --}}
-            <div class="ml-auto">
+            {{!-- <div class="ml-auto">
                 <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="createQuizBtn">
                     Create Quiz
                 </button>
-            </div>
-    </form>
+            </div> --}}
+            {{!-- </form> --}}
 
-    {{!-- Question and answers section --}}
-    <form class="q-and-a">
-        <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
-            <p>Question and aswers</p>
+            {{!-- Question and answers section --}}
+            {{!-- <form class="q-and-a"> --}}
+            <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
+                <p>Question and aswers</p>
 
-            {{!-- Container to be rendered with the question boxes --}}
-            <div class="qContainer"></div>
+                {{!-- Container to be rendered with the question boxes --}}
+                <div class="qContainer">
+                    <label class="block">
+                        <span class="text-gray-700">Question 1</span>
+                        <input type="text" class="form-input mt-1 block w-full questions" id="q1"
+                            placeholder="Your question goes here">
+                    </label>
+                    <div class="block">
+                        <div class="mt-2">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" class="form-radio" name="radio1" value="1">
+                                        <input type="text" id="q1a1" class="form-input mt-1 ml-2 block w-full answers"
+                                            placeholder="answer 1">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="text" id="q1a2" class="form-input mt-1 mr-2 block w-full answers"
+                                            placeholder="answer 2">
+                                        <input type="radio" class="form-radio" name="radio1" value="2">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" class="form-radio" name="radio1" value="3">
+                                        <input type="text" id="q1a3" class="form-input mt-1 ml-2 block w-full answers"
+                                            placeholder="answer 3">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="text" id="q1a4" class="form-input mt-1 mr-2 block w-auto answers"
+                                            placeholder="answer 4">
+                                        <input type="radio" class="form-radio" name="radio1" value="4">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <label class="block">
+                        <span class="text-gray-700">Question 2</span>
+                        <input type="text" class="form-input mt-1 block w-full questions" id="q2"
+                            placeholder="Your question goes here">
+                    </label>
+                    <div class="block">
+                        <div class="mt-2">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" class="form-radio" name="radio2" value="1">
+                                        <input type="text" id="q2a1" class="form-input mt-1 ml-2 block w-full answers"
+                                            placeholder="answer 1">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="text" id="q2a2" class="form-input mt-1 mr-2 block w-full answers"
+                                            placeholder="answer 2">
+                                        <input type="radio" class="form-radio" name="radio2" value="2">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" class="form-radio" name="radio2" value="3">
+                                        <input type="text" id="q2a3" class="form-input mt-1 ml-2 block w-full answers"
+                                            placeholder="answer 3">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="text" id="q2a4" class="form-input mt-1 mr-2 block w-auto answers"
+                                            placeholder="answer 4">
+                                        <input type="radio" class="form-radio" name="radio2" value="4">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <label class="block">
+                        <span class="text-gray-700">Question 3</span>
+                        <input type="text" class="form-input mt-1 block w-full questions" id="q3"
+                            placeholder="Your question goes here">
+                    </label>
+                    <div class="block">
+                        <div class="mt-2">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" class="form-radio" name="radio3" value="1">
+                                        <input type="text" id="q3a1" class="form-input mt-1 ml-2 block w-full answers"
+                                            placeholder="answer 1">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="text" id="q3a2" class="form-input mt-1 mr-2 block w-full answers"
+                                            placeholder="answer 2">
+                                        <input type="radio" class="form-radio" name="radio3" value="2">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" class="form-radio" name="radio3" value="3">
+                                        <input type="text" id="q3a3" class="form-input mt-1 ml-2 block w-full answers"
+                                            placeholder="answer 3">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="text" id="q3a4" class="form-input mt-1 mr-2 block w-auto answers"
+                                            placeholder="answer 4">
+                                        <input type="radio" class="form-radio" name="radio3" value="4">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            {{!-- Save button --}}
-            <div class="ml-auto">
-                <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1"
+                {{!-- Save button --}}
+                <div class="ml-auto">
+                    {{!-- <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1"
                     id="saveQuestionBtn">
                     Save
-                </button>
-            </div>
+                </button> --}}
+                </div>
+                <br>
+                <div class="ml-auto">
+                    <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1"
+                        id="createQuizBtn">
+                        Create Quiz
+                    </button>
+                </div>
     </form>
 </div>
-<div class="ml-auto">
+{{!-- <div class="ml-auto">
     <button type="button" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="saveQuizBtn">
         Save and exit
     </button>
-</div>
+</div> --}}
 </div>
 
 <script src="../../js/createQuiz.js"></script>
