@@ -82,6 +82,7 @@ $(document).ready(() => {
         }
         // If all the fields are complete, run the createQuiz function
         createQuiz(quizData);
+        window.location.replace("/adminDashboard");
     });
 
     // POST request to the /api/createQuiz api route:
