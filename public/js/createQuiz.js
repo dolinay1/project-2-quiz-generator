@@ -25,8 +25,8 @@ $(document).ready(() => {
             quizName: $("#quizName-input").val().trim(),
             category: $("#quizCat-input option:selected").val().trim(),
             questionCount: parseInt($("#questionCount-input option:selected").val()),
-            questions: {
-                question1: $("#q1").val().trim(),
+            question1: {
+                question: $("#q1").val().trim(),
                 answers: [{
                     answer1: {
                         answer: $("#q1a1").val().trim(),

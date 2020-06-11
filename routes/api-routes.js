@@ -41,10 +41,9 @@ module.exports = function (app) {
 
   // Route for creating a quiz:
   app.post("/api/createQuiz", (req, res) => {
-    // console.log(req.user);
-    console.log(quizData)
+    console.log(req.body)
     const newQuiz = req.body
-    db.Quizzes.create({
+    const quiz = db.Quizzes.create({
       quizName: newQuiz.quizName,
       category: newQuiz.category,
       questionCount: newQuiz.questionCount,
@@ -56,36 +55,21 @@ module.exports = function (app) {
     })
       .then((dbQuiz) => {
         ///  create question .then(dbquestion) add the id from the quizz
-
-        console.log(req)
-
-
+        console.log(`this is ${dbQuiz.id}`)
+        for (i = 1; i < 4; i++) {
+          db.Questions.create({
+            QuizId: dbQuiz.id,
+            question: newQuiz["question" + i].question
+          })
+        }
         /// create answers add the ide from the queston 
-
-      })
+      }).then((dbQuestions))
       .catch(err => {
         console.error(err);
         res.status(401).json(err);
       });
   })
 
-  // Route for creating questions:
-  app.post("/api/createQuestion", (req, res) => {
-    const newQuestion = req.body
-    console.log(req.quizzes)
-    db.Questions.create({
-      question: newQuestion.question1,
-      QuizID: req.quizzes.id
-    })
-      .then(() => {
-        console.log("done");
-
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(401).json(err);
-      });
-  })
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
@@ -110,20 +94,6 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/api/quizzes_data", function (req, res) {
-    var query = {};
-    if (req.query.user.id) {
-      query.UserID = req.query.user.id;
-    }
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Quizzes.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function (dbQuizzes) {
-      res.json(dbQuizzes);
-    });
-  });
+
 };
 
