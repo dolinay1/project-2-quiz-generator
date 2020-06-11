@@ -59,11 +59,20 @@ module.exports = function (app) {
   })
 
   // Route for creating questions:
-  app.post("/api/createQuestions", (req, res) => {
+  app.post("/api/createQuestion", (req, res) => {
+    console.log(req.data);
     db.Questions.create({
       question: req.body.question,
+      QuizId: req.quizzes.id
     })
-  })
+      .then(() => {
+        console.log("done");
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(401).json(err);
+      });
+  });
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
