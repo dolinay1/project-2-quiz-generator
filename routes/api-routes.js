@@ -22,7 +22,6 @@ module.exports = function (app) {
     db.User.create({
       adminID: req.body.adminID,
       adminUser: req.body.adminUser,
-      activeUser: req.body.activeUser,
       username: req.body.username,
       password: req.body.password,
       firstName: req.body.firstName,
@@ -41,34 +40,37 @@ module.exports = function (app) {
 
   // Route for creating a quiz:
   app.post("/api/createQuiz", (req, res) => {
-    console.log(req.body)
-    const newQuiz = req.body
-    const quiz = db.Quizzes.create({
-      quizName: newQuiz.quizName,
-      category: newQuiz.category,
-      questionCount: newQuiz.questionCount,
+    db.Quizzes.create({
+      quizName: req.body.quizName,
+      category: req.body.category,
+      questionCount: req.body.questionCount,
       UserId: req.user.id
-      // first you create the qui
-      /// loop the object 
-      // then you create the row for the first question 
-      // then you create the row for the answers realted with this question
     })
-      .then((dbQuiz) => {
-        ///  create question .then(dbquestion) add the id from the quizz
-        console.log(`this is ${dbQuiz.id}`)
-        for (i = 1; i < 4; i++) {
+      .then(dataQuiz => {
+
+        for (let i = 1; i < 4; i++) {
+
           db.Questions.create({
-            QuizId: dbQuiz.id,
-            question: newQuiz["question" + i].question
+            question: req.body["question" + i].title,
+            QuizId: dataQuiz.id
+
+          }).then(dataQuestion => {
+
+            for (let j = 1; j < 4; j++) {
+
+              db.Answers.create({
+                answer: req.body["question" + j].answer["answer" + j].title,
+                correctAnswer: req.body["question" + j].answer["answer" + j].correct,
+                QuestionId: dataQuestion.id
+              }).then(dataAnswer => {
+                res.json("done")
+              })
+            }
           })
         }
-        /// create answers add the ide from the queston 
-      }).then((dbQuestions))
-      .catch(err => {
-        console.error(err);
-        res.status(401).json(err);
-      });
-  })
+      })
+
+  });
 
 
   // Route for logging user out
@@ -94,6 +96,17 @@ module.exports = function (app) {
     }
   });
 
+  // Route for getting all the quizes of a user:
+  app.get("/api/quiz_data/:id", function (req, res) {
+    db.Quizzes.findAll({
+      where: {
+        id: req.params.id
+      },
+      include: [db.User]
+    }).then(function (dbquiz) {
+      res.json(dbquiz);
+    });
+  });
 
 };
 
