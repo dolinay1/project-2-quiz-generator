@@ -13,7 +13,6 @@
         </div>
     </div>
     <br>
-
     <form class="createQuiz">
         {{!-- Quiz details section --}}
         <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
@@ -52,24 +51,36 @@
                     </label>
                 </div>
             </div>
+            {{!-- Create Quiz button --}}
+            <div class="ml-auto">
+                <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="createQuizBtn">
+                    Create Quiz
+                </button>
+            </div>
+    </form>
 
-            {{!-- Question and answers section --}}
-            <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
-                <p>Question and aswers</p>
+    {{!-- Question and answers section --}}
+    <form class="q-and-a">
+        <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
+            <p>Question and aswers</p>
 
-                {{!-- Container to be rendered with the question boxes --}}
-                <div class="qContainer"></div>
+            {{!-- Container to be rendered with the question boxes --}}
+            <div class="qContainer"></div>
 
-                {{!-- Create quiz button --}}
-                <div class="ml-auto">
-                    <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1"
-                        id="createQuizBtn">
-                        Submit Questions
-                    </button>
-                </div>
+            {{!-- Save button --}}
+            <div class="ml-auto">
+                <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1"
+                    id="saveQuestionBtn">
+                    Save
+                </button>
+            </div>
     </form>
 </div>
-
+<div class="ml-auto">
+    <button type="button" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="saveQuizBtn">
+        Save and exit
+    </button>
+</div>
 </div>
 
 <script src="../../js/createQuiz.js"></script>
