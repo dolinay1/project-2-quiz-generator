@@ -41,37 +41,36 @@ module.exports = function (app) {
 
   // Route for creating a quiz:
   app.post("/api/createQuiz", (req, res) => {
-    console.log(req.user);
     db.Quizzes.create({
       quizName: req.body.quizName,
       category: req.body.category,
       questionCount: req.body.questionCount,
       UserId: req.user.id
-
     })
-      .then(() => {
-        console.log("done");
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(401).json(err);
-      });
-  })
+      .then(dataQuiz => {
 
-  // Route for creating questions:
-  app.post("/api/createQuestion", (req, res) => {
-    console.log(req.data);
-    db.Questions.create({
-      question: req.body.question,
-      QuizId: req.quizzes.id
-    })
-      .then(() => {
-        console.log("done");
+        for (let i = 1; i < 4; i++) {
+
+          db.Questions.create({
+            question: req.body["question" + i].title,
+            QuizId: dataQuiz.id
+
+          }).then(dataQuestion => {
+
+            for (let j = 1; j < 5; j++) {
+
+              db.Answers.create({
+                answer: req.body["question" + j].answers["answer" + j].title,
+                correctAnswer: req.body["question" + j].answers["answer" + j].correct,
+                QuestionId: dataQuestion.id
+              }).then(dataAnswer => {
+                res.json("done")
+              })
+            }
+          })
+        }
       })
-      .catch(err => {
-        console.error(err);
-        res.status(401).json(err);
-      });
+
   });
 
   // Route for logging user out
