@@ -41,16 +41,27 @@ module.exports = function (app) {
 
   // Route for creating a quiz:
   app.post("/api/createQuiz", (req, res) => {
-    console.log(req.user);
+    // console.log(req.user);
+    console.log(quizData)
+    const newQuiz = req.body
     db.Quizzes.create({
-      quizName: req.body.quizName,
-      category: req.body.category,
-      questionCount: req.body.questionCount,
+      quizName: newQuiz.quizName,
+      category: newQuiz.category,
+      questionCount: newQuiz.questionCount,
       UserId: req.user.id
-
+      // first you create the qui
+      /// loop the object 
+      // then you create the row for the first question 
+      // then you create the row for the answers realted with this question
     })
-      .then(() => {
-        console.log("done");
+      .then((dbQuiz) => {
+        ///  create question .then(dbquestion) add the id from the quizz
+
+        console.log(req)
+
+
+        /// create answers add the ide from the queston 
+
       })
       .catch(err => {
         console.error(err);
@@ -60,19 +71,21 @@ module.exports = function (app) {
 
   // Route for creating questions:
   app.post("/api/createQuestion", (req, res) => {
-    console.log(req.data);
+    const newQuestion = req.body
+    console.log(req.quizzes)
     db.Questions.create({
-      question: req.body.question,
-      QuizId: req.quizzes.id
+      question: newQuestion.question1,
+      QuizID: req.quizzes.id
     })
       .then(() => {
         console.log("done");
+
       })
       .catch(err => {
         console.error(err);
         res.status(401).json(err);
       });
-  });
+  })
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
@@ -96,4 +109,21 @@ module.exports = function (app) {
       console.log(req.user.adminUser)
     }
   });
+
+  app.get("/api/quizzes_data", function (req, res) {
+    var query = {};
+    if (req.query.user.id) {
+      query.UserID = req.query.user.id;
+    }
+    // Here we add an "include" property to our options in our findAll query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Author
+    db.Quizzes.findAll({
+      where: query,
+      include: [db.User]
+    }).then(function (dbQuizzes) {
+      res.json(dbQuizzes);
+    });
+  });
 };
+

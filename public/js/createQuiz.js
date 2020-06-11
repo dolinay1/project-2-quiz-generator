@@ -1,101 +1,120 @@
 // Start the page with 5 empty question boxes:
 $(document).ready(() => {
 
-    let boxCount = 1
-    // Start creating a quiz by providing a name, category and number of questions for it:
-    $("form.createQuiz").on("submit", event => {
+    // Getting references to our inputs:
+    const createQuizForm = $("form.createQuiz");
+
+    // We validate that the input fields are not empty:
+    createQuizForm.on("submit", event => {
         event.preventDefault();
+        //grab all the info
+        // $(".qustions").
+
+        // $(".answers")
+
+        // var questions = $(".questions")
+        // console.log(questions)
+
+        // var answers = $(".answers")
+        // console.log(answers)
+
+        //loop question and create key and values inse de object quizData
 
         // Quiz data for the createQuiz route
         const quizData = {
             quizName: $("#quizName-input").val().trim(),
             category: $("#quizCat-input option:selected").val().trim(),
-            questionCount: parseInt($("#questionCount-input option:selected").val())
+            questionCount: parseInt($("#questionCount-input option:selected").val()),
+            questions: {
+                question1: $("#q1").val().trim(),
+                answers: [{
+                    answer1: {
+                        answer: $("#q1a1").val().trim(),
+                        corret: true
+                    },
+                    answer2: {
+                        answer: $("#q1a2").val().trim(),
+                        correct: false
+                    },
+                    answer3: {
+                        answer: $("#q1a3").val().trim(),
+                        correct: false
+                    },
+                    answer4: {
+                        answer: $("#q1a4").val().trim(),
+                        correct: false
+                    }
+                }]
+            },
+            question2: {
+                question: $("#q2").val().trim(),
+                answers: [{
+                    answer1: {
+                        answer: $("#q2a1").val().trim(),
+                        correct: true
+                    },
+                    answer2: {
+                        answer: $("#q2a2").val().trim(),
+                        correct: false
+                    },
+                    answer3: {
+                        answer: $("#q2a3").val().trim(),
+                        correct: false
+                    },
+                    answer4: {
+                        answer: $("#q2a4").val().trim(),
+                        correct: false
+                    }
+                }]
+            },
+            question3: {
+                question: $("#q3").val().trim(),
+                answers: [{
+                    answer1: {
+                        answer: $("#q3a1").val().trim(),
+                        correct: true
+                    },
+                    answer2: {
+                        answer: $("#q3a2").val().trim(),
+                        correct: false
+                    },
+                    answer3: {
+                        answer: $("#q3a3").val().trim(),
+                        correct: false
+                    },
+                    answer4: {
+                        answer: $("#q3a4").val().trim(),
+                        correct: false
+                    }
+                }]
+            }
         };
+        console.log(quizData)
+        //grab all the info
+        // $(".qustions").
+
+        // $(".answers")
+
+        //loop question and create key and values inse de object quizData
+        // var id = $(this).attr("id")   
+        // questionData["q" + id] = { title: "", a: [] }
+        // { q1: { title: "q1", answers: { a1: { title: "", bool: true }, a2: { title: "", bool: false } } } }
 
         if (!quizData.quizName) {
             return;
         }
-
-        // If all the fields are complete, run the createQuiz and render question box functions:
+        // If all the fields are complete, run the createQuiz function
         createQuiz(quizData);
-        renderQBox(boxCount);
     });
 
-    // Next the user provides a question and answers:
-    $("form.q-and-a").on("submit", event => {
-        event.preventDefault();
-
-        const questionData = {
-            question: $(`#q${boxCount}`).val()
-        }
-        console.log(questionData);
-        createQuestion(questionData);
-    })
-
-    // API Routes:
     // POST request to the /api/createQuiz api route:
     function createQuiz(quizData) {
         $.post("/api/createQuiz", quizData)
-            .then(() => {
-                console.log("done");
-            })
-            .catch(handleErr);
+            .then()
+            .catch(handleLoginErr);
     }
 
-    function createQuestion(questionData) {
-        $.post("/api/createQuestion", questionData)
-            .then(() => {
-                console.log("question data created")
-            })
-            .catch(handleErr)
-    }
-
-    function renderQBox(boxCount) {
-        // Starting with the first empty question box
-        $(".qContainer").append(`<label class="block">
-                <span class="text-gray-700">Question ${boxCount}</span>
-                <input type="text" class="form-input mt-1 block w-full" id="q${boxCount}" placeholder="Your question goes here">
-            </label>
-            <div class="block">
-            <div class="mt-2">
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="radio" class="form-radio" name="radio${boxCount}" value="1">
-                            <input type="text" id="ans1" class="form-input mt-1 ml-2 block w-full"
-                                placeholder="answer 1">
-                        </label>
-                    </div>
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="text" id="ans2" class="form-input mt-1 mr-2 block w-full"
-                                placeholder="answer 2">
-                            <input type="radio" class="form-radio" name="radio${boxCount}" value="2">
-                        </label>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="radio" class="form-radio" name="radio${boxCount}" value="3">
-                            <input type="text" id="ans3" class="form-input mt-1 ml-2 block w-full"
-                                placeholder="answer 3">
-                        </label>
-                    </div>
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="text" id="ans4" class="form-input mt-1 mr-2 block w-auto"
-                                placeholder="answer 4">
-                            <input type="radio" class="form-radio" name="radio${boxCount}" value="4">
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>`)
-    }
-
-    function handleErr(err) {
+    function handleLoginErr(err) {
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
     }

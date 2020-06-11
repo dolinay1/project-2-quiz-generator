@@ -48,5 +48,4 @@ module.exports = function (app) {
   app.get("/createQuiz", isAuthenticated, (req, res) => {
     res.render("createQuiz");
   })
-
 };
