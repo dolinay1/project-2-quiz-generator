@@ -4,7 +4,8 @@
   "description": "a web application that generates quizes based on user input",
   "main": "index.js",
   "scripts": {
-    "build": "postcss css/tailwind.css -o public/build/tailwind.css"
+    "build": "postcss css/tailwind.css -o public/build/tailwind.css",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
