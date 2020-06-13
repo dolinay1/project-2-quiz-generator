@@ -48,7 +48,7 @@ $(document).ready(() => {
   }
 
   // Redirect the user to the signup page when clicking the "create account" button
-  $("#createAccountBtn").on("click", function () {
+  $("#signupBtn").on("click", function () {
     window.location.replace("/signup");
   });
 });

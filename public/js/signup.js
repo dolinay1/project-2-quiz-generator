@@ -30,6 +30,7 @@ $(document).ready(() => {
     if (!userData.username || !userData.password) {
       return;
     }
+
     // If we have an username and password, run the signUpUser function
     signUpUser(userData);
     $("#adminID-input option:selected").val("");
@@ -54,7 +55,7 @@ $(document).ready(() => {
           window.location.replace("/userDashboard");
         }
 
-        // If there's an error, handle it by throwing up a bootstrap alert
+        // If there's an error, handle it by throwing up an alert
       })
       .catch(handleLoginErr);
   }
