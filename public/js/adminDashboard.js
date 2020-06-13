@@ -12,12 +12,12 @@ $(document).ready(() => {
       console.log(quizData);
       $(".quizContainer").empty();
       for (let i = 0; i < quizData.length; i++) {
-        $(".quizContainer").append(`<li>
-<button class="bg-teal-300 hover:bg-teal-700 px-6 py-2 rounded-lg m-1">Test</button>
-<button class="bg-teal-300 hover:bg-teal-700 px-6 py-2 rounded-lg m-1">Edit</button>
-<button class="bg-teal-300 hover:bg-teal-700 px-6 py-2 rounded-lg m-1">Delete</button>
-<span class="border m-2 px-64 py-2 bg-teal-100">Quiz name: ${quizData[i].quizName}, Category: ${quizData[i].category}, Number of questions: ${quizData[i].questionCount}</span>
-</li>`)
+        $(".quizContainer").append(`<div>
+<button class="bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-2 rounded focus:outline-none focus:shadow-outline mr-1">Test</button>
+<button class="bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-2 rounded focus:outline-none focus:shadow-outline mr-1">Edit</button>
+<button class="bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-2 rounded focus:outline-none focus:shadow-outline mr-1">Delete</button>
+<span class="border bg-green-100 px-4 py-2 w-auto">Quiz name: ${quizData[i].quizName}, Category: ${quizData[i].category}, Number of questions: ${quizData[i].questionCount}</span>
+<div>`)
       }
     });
   });

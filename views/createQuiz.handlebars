@@ -1,18 +1,28 @@
-{{!-- title --}}
 <div class="border bg-white shadow-lg px-2 py-3 m-4 rounded-lg">
-    <div class="grid grid-cols-3">
-        <div>
-            <p>Create a New Quiz</p>
-        </div>
 
+    {{!-- Title --}}
+    <div class="text-center text-4xl text-bold text-green-500">Create a Quiz</div>
+
+    <div class="grid grid-cols-3">
         <div></div>
-        {{!-- Back to dashboard button --}}
+        <div></div>
+
+        {{!-- Back to dashboard and logout buttons --}}
         <div class="ml-auto">
-            <button class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="backDashBtn">Back to
-                Dashboard</button>
+            <button id="createQuizBtn"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button">
+                <a href="/adminDashboard"> Back to Dashboard</a>
+            </button>
+            <button id="logoutBtn"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button">
+                <a href="/logout">Logout</a>
+            </button>
         </div>
     </div>
     <br>
+
     <form class="createQuiz">
         {{!-- Quiz details section --}}
         <div class="border bg-white shadow-lg px-2 py-3 m-4 mb-5 rounded-lg">
@@ -195,22 +205,13 @@
                 </div>
 
                 {{!-- Save button --}}
-                <div class="ml-auto">
-                    {{!-- <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1"
-                    id="saveQuestionBtn">
-                    Save
-                </button> --}}
-                </div>
-                <br>
-                <div class="ml-auto">
-                    <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1"
-                        id="createQuizBtn">
-                        Create Quiz
-                    </button>
-                </div>
+                <button
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+                    Create Quiz
+                </button>
     </form>
-</div>
-{{!-- <div class="ml-auto">
+    {{!-- <div class="ml-auto">
     <button type="button" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1" id="saveQuizBtn">
         Save and exit
     </button>

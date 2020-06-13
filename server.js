@@ -32,7 +32,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
   });

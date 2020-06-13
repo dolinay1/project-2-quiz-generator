@@ -1,154 +1,208 @@
-<div class="border bg-white shadow-lg px-2 py-3 m-4 grid grid-cols-3 gap-4">
-    <div class="col-span-2">
-        <form class="signup">
-            <!-- Dropdown for admin user -->
-            <div class="mb-2">
-                <label class="inline-flex items-center">
-                    <span class="mr-2 text-gray-700">Is this an Admin Account?</span>
-                    <Select id="adminUser-input" name="adminUser">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                </label>
-            </div>
+<div class="flex flex-col w-full screen-height items-center justify-center max-w-lg m-auto mt-5 mb-20">
+    <form class="signup bg-gray-200 w-full shadow-lg rounded border-solid px-8 pt-6 pb-8 mb-5">
+        <div class="text-center text-4xl text-bold text-green-500 mb-5">Sign Up</div>
 
-            <!-- Dropdown for admin account id -->
-            <div class="mb-2">
-                <label class="inline-flex items-center">
-                    <span class="mr-2 text-gray-700">Is this an Admin Account?</span>
-                    <Select id="adminID-input" name="adminID-input">
-                        <option value="">Select an admin</option>
-                        <option value="1">admin1</option>
-                        <option value="2">admin2</option>
-                    </select>
-                </label>
-            </div>
-
-            <!-- Username input -->
-            <label class="block ">
-                <span class="text-gray-700">Username</span>
-                <input class="form-input mt-1 block w-full" placeholder="my username" id="username-input">
-            </label>
-
-            <div>
-                <!-- Password input -->
-                <label class="block">
-                    <span class="text-gray-700">Password</span>
-                    <input class="form-input mt-1 block w-1/2" placeholder="my password" id="password-input">
-                </label>
-
-                <!-- Confirm password input -->
-                <label class="block">
-                    <span class="text-gray-700">Confirm Password</span>
-                    <input class="form-input mt-1 block w-1/2" placeholder="repeat my password">
-                </label>
-            </div>
-
-            <!-- First name input -->
-            <label class="block">
-                <span class="text-gray-700">First Name</span>
-                <input class="form-input mt-1 block w-full" placeholder="John" id="firstName-input">
-            </label>
-
-            <!-- Middle initial input -->
-            <label class="block">
-                <span class="text-gray-700">Middle Initial</span>
-                <input class="form-input mt-1 block w-full" placeholder="C." id="lastName-input">
-            </label>
-
-            <!-- Last name input -->
-            <label class="block">
-                <span class="text-gray-700">Last Name</span>
-                <input class="form-input mt-1 block w-full" placeholder="Doe" id="middleInitial-input">
-            </label>
-
-            <!-- City input -->
-            <label class="block">
-                <span class="text-gray-700">City</span>
-                <input class="form-input mt-1 block w-full" placeholder="My city" id="city-input">
-            </label>
-
-            <!-- State selection drop-down menu -->
-            <label class="block mt-4">
-                <span class="text-gray-700">State</span>
-                <select class="form-select mt-1 block w-full" id="state-input">
-                    <option>AL</option>
-                    <option>AK</option>
-                    <option>AZ</option>
-                    <option>AR</option>
-                    <option>CA</option>
-                    <option>CO</option>
-                    <option>CT</option>
-                    <option>DE</option>
-                    <option>FL</option>
-                    <option>GA</option>
-                    <option>HI</option>
-                    <option>ID</option>
-                    <option>IL</option>
-                    <option>IN</option>
-                    <option>IA</option>
-                    <option>KS</option>
-                    <option>KY</option>
-                    <option>LA</option>
-                    <option>ME</option>
-                    <option>MD</option>
-                    <option>MA</option>
-                    <option>MI</option>
-                    <option>MN</option>
-                    <option>MS</option>
-                    <option>MO</option>
-                    <option>MT</option>
-                    <option>NE</option>
-                    <option>NV</option>
-                    <option>NH</option>
-                    <option>NJ</option>
-                    <option>NM</option>
-                    <option>NY</option>
-                    <option>NV</option>
-                    <option>ND</option>
-                    <option>OH</option>
-                    <option>OK</option>
-                    <option>OR</option>
-                    <option>PA</option>
-                    <option>RI</option>
-                    <option>SC</option>
-                    <option>SD</option>
-                    <option>TN</option>
-                    <option>TX</option>
-                    <option>UT</option>
-                    <option>VT</option>
-                    <option>VA</option>
-                    <option>WA</option>
-                    <option>WV</option>
-                    <option>WI</option>
-                    <option>WY</option>
+        {{!-- Drop-down to register admin user --}}
+        <div class="text-gray-700 text-lg font-bold mt-5">
+            <label class="inline-flex items-center">
+                <span class="mr-2 text-gray-700">Is this an Admin Account?</span>
+                <Select id="adminUser-input" name="adminUser">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                 </select>
             </label>
-
-            <!-- Submit and Cancel buttons -->
-            <div class="m-2 flex justify-center">
-                <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1">
-                    Submit
-                </button>
-                <button type="button" class="bg-teal-300 hover:bg-teal-500 px-6 py-2 rounded-lg m-1" id="cancelBtn">
-                    Cancel
-                </button>
-            </div>
-        </form>
-    </div>
-
-
-    <div class="col-span-1">
-        <!-- Profile photo place holder -->
-        <img src="/img/profilePic.png" alt="Generic profile photo" class="h-auto w-auto">
-
-        <!-- Add profile photo button -->
-        <div class="m-2">
-            <button class="bg-teal-300 hover:bg-teal-500 px-6 py-2 rounded-lg w-full">
-                Add photo
-            </button>
         </div>
-    </div>
+
+        {{!-- In the future, the dropdown to register an admin user can be converted to a check box by using this code: --}}
+        {{!-- <label class="text-gray-700 text-lg font-bold mt-5" for="inputAdminAccount">Check to create admin
+            account</label>
+        <input type="checkbox" name="acceptRules" class="inline checkbox" id="adminUser-input" value="false"> --}}
+        {{!-- <input type="checkbox" name="adminUser" id="adminUser-input" value="0"> --}}
+
+        {{!-- Drop-down menu to select admin user --}}
+        <div class="text-gray-700 text-lg font-bold mt-5">
+            <label for="admins">Select an admin account:</label>
+            <select id="adminID-input" name="admins"
+                class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-state">
+                <option value="">Select an admin account</option>
+                <option value="1">admin1</option>
+                <option value="2">admin2</option>
+                <option value="3">admin3</option>
+                <option value="4">admin4</option>
+            </select>
+        </div>
+
+        {{!-- Username input --}}
+        <div class="mb-5">
+            <label class="block text-gray-700 text-lg font-bold mt-5 mb-2" for="username">
+                Username
+            </label>
+            <input id="username-input"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text" placeholder="Username">
+        </div>
+
+        {{!-- Password input --}}
+        <div class="mb-5">
+            <label class="block text-gray-700 text-lg font-bold mb-2" for="password">
+                Password
+            </label>
+            <input id="password-input"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                type="password" placeholder="******************">
+        </div>
+
+        {{!-- First name input --}}
+        <div class="mb-5">
+            <label class="block text-gray-700 text-lg font-bold mt-5 mb-2" for="firstName">
+                First Name
+            </label>
+            <input id="firstName-input"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text">
+        </div>
+
+        {{!-- Last name input --}}
+        <div class="mb-5">
+            <label class="block text-gray-700 text-lg font-bold mb-2" for="lastName">
+                Last Name
+            </label>
+            <input id="lastName-input"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                type="text">
+        </div>
+
+        {{!-- Middle initial input --}}
+        <div class="mb-5">
+            <label class="block text-gray-700 text-lg font-bold mt-5 mb-2" for="middleInitial">
+                Middle Initial
+            </label>
+            <input id="middleInitial-input"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text">
+        </div>
+
+        {{!-- City input --}}
+        <div class="mb-5">
+            <label class="block text-gray-700 text-lg font-bold mb-2" for="City">
+                City
+            </label>
+            <input id="city-input"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                type="text">
+        </div>
+
+        {{!-- State selection drop-down menu --}}
+        <div class="text-gray-700 text-lg font-bold mb-5">
+            <label for="State">State</label>
+            <select class="form-select mt-1 block w-full" id="state-input">
+                <option>AL</option>
+                <option>AK</option>
+                <option>AZ</option>
+                <option>AR</option>
+                <option>CA</option>
+                <option>CO</option>
+                <option>CT</option>
+                <option>DE</option>
+                <option>FL</option>
+                <option>GA</option>
+                <option>HI</option>
+                <option>ID</option>
+                <option>IL</option>
+                <option>IN</option>
+                <option>IA</option>
+                <option>KS</option>
+                <option>KY</option>
+                <option>LA</option>
+                <option>ME</option>
+                <option>MD</option>
+                <option>MA</option>
+                <option>MI</option>
+                <option>MN</option>
+                <option>MS</option>
+                <option>MO</option>
+                <option>MT</option>
+                <option>NE</option>
+                <option>NV</option>
+                <option>NH</option>
+                <option>NJ</option>
+                <option>NM</option>
+                <option>NY</option>
+                <option>NV</option>
+                <option>ND</option>
+                <option>OH</option>
+                <option>OK</option>
+                <option>OR</option>
+                <option>PA</option>
+                <option>RI</option>
+                <option>SC</option>
+                <option>SD</option>
+                <option>TN</option>
+                <option>TX</option>
+                <option>UT</option>
+                <option>VT</option>
+                <option>VA</option>
+                <option>WA</option>
+                <option>WV</option>
+                <option>WI</option>
+                <option>WY</option>
+            </select>
+        </div>
+
+        {{!-- Signup and Login buttons --}}
+        <div class="flex items-center text-center justify-between">
+            <button
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit">
+                Sign Up
+            </button>
+            <button
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button">
+                <a href="/login"> Back to Login</a>
+            </button>
+            {{!-- <a class="inline-block align-baseline text-lg text-green-500 hover:text-green-800" href="#">
+          Forgot Password?
+        </a> --}}
+        </div>
+    </form>
 </div>
 
+{{!-- Error alert --}}
+<div style="display: none" id="alert" role="alert"
+    class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">
+    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <path
+            d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+    </svg>
+    <p class="msg"></p>
+</div>
+
+{{!-- Footer --}}
+<footer class="flex justify-center px-4 bg-green-500 text-gray-100 mb-auto">
+    <div class="container py-6 text-center">
+        <hr class="h-px mt-6 footer-divider border-none">
+
+        <div class="grid grid-cols-1 text-center mt-6">
+            <div class="text-lg">© Copyright 2020 by Ramsay Gonzalez, Ioannis Sporidis-Foster, Matt Nicolai, Julian
+                Dolinay</div>
+            <div class="flex mx-auto mt-4 justify-center">
+                <iframe class="github-btn"
+                    src="https://ghbtns.com/github-btn.html?user=ramsaygonzalez&type=follow&count=true" frameborder="0"
+                    scrolling="0" width="170px" height="20px"></iframe>
+                <iframe class="github-btn"
+                    src="https://ghbtns.com/github-btn.html?user=dmjohnspor&type=follow&count=true" frameborder="0"
+                    scrolling="0" width="170px" height="20px"></iframe>
+                <iframe class="github-btn"
+                    src="https://ghbtns.com/github-btn.html?user=mnicolai20&type=follow&count=true" frameborder="0"
+                    scrolling="0" width="170px" height="20px"></iframe>
+                <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=dolinay1&type=follow&count=true"
+                    frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{{!-- JS script --}}
 <script src="../../js/signup.js"></script>

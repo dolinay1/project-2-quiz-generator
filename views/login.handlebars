@@ -1,35 +1,70 @@
-<div class="border bg-white shadow-lg px-2 py-3 w-auto m-64 grid grid-cols-2 gap-4 w-full max-w-md max-auto mx-auto">
-    <div class="col-span-1">
-        <form class="login">
-            <!-- Username input -->
-            <label class="block ">
-                <span class="text-gray-700">Username</span>
-                <input type="text" class="form-input mt-1 block w-full" placeholder="my username" id="username-input">
+<div class="flex screen-height w-full items-center justify-center max-w-md m-auto">
+    <form class="login bg-gray-200 w-full shadow-lg rounded border-solid px-8 pt-6 pb-8 mb-4">
+        <div class="text-center text-4xl text-bold text-green-500 mb-5">Login</div>
+
+        {{!-- Username input --}}
+        <div class="mb-4">
+            <label class="block text-gray-700 text-md font-bold mb-2" for="username">
+                Username
             </label>
+            <input id="username-input"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="username" type="text" placeholder="Username">
+        </div>
 
-            <div>
-                <!-- Password input -->
-                <label class="block">
-                    <span class="text-gray-700">Password</span>
-                    <input type="password" class="form-input mt-1 block w-full" placeholder="my password"
-                        id="password-input">
-                </label>
+        {{!-- Password input --}}
+        <div class="mb-6">
+            <label class="block text-gray-700 text-md font-bold mb-2" for="password">
+                Password
+            </label>
+            <input id="password-input"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                type="password" placeholder="******************">
+        </div>
 
-                <!-- Submit and Cancel buttons -->
-                <div class="m-2 flex justify-center">
-                    <button type="submit" class="bg-teal-500 hover:bg-teal-700 px-6 py-2 rounded-lg m-1">
-                        Login
-                    </button>
-                    <button id="createAccountBtn" type="button"
-                        class="bg-teal-300 hover:bg-teal-500 px-2 py-2 rounded-lg m-1">
-                        Create an account
-                    </button>
-                </div>
-        </form>
-    </div>
-    <div class="col-span-1">
+        {{!-- Sign-in button --}}
+        <div class="flex items-center justify-between">
+            <button
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit">
+                Login
+            </button>
 
-    </div>
+            {{!-- Sign-up button --}}
+            <button id="signupBtn"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button">
+                Sign Up
+            </button>
+    </form>
+</div>
+<p class="text-center text-gray-500 text-xs"></p>
 </div>
 
+{{!-- Footer --}}
+<footer class="flex justify-center px-4 bg-green-500 text-gray-100 mb-auto">
+    <div class="container py-6 text-center">
+        <hr class="h-px mt-6 footer-divider border-none">
+
+        <div class="grid grid-cols-1 text-center mt-6">
+            <div class="text-lg">© Copyright 2020 by Ramsay Gonzalez, Ioannis Sporidis-Foster, Matt Nicolai, Julian
+                Dolinay</div>
+            <div class="flex mx-auto mt-4 justify-center">
+                <iframe class="github-btn"
+                    src="https://ghbtns.com/github-btn.html?user=ramsaygonzalez&type=follow&count=true" frameborder="0"
+                    scrolling="0" width="170px" height="20px"></iframe>
+                <iframe class="github-btn"
+                    src="https://ghbtns.com/github-btn.html?user=dmjohnspor&type=follow&count=true" frameborder="0"
+                    scrolling="0" width="170px" height="20px"></iframe>
+                <iframe class="github-btn"
+                    src="https://ghbtns.com/github-btn.html?user=mnicolai20&type=follow&count=true" frameborder="0"
+                    scrolling="0" width="170px" height="20px"></iframe>
+                <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=dolinay1&type=follow&count=true"
+                    frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{{!-- JS script --}}
 <script src="../../js/login.js"></script>
