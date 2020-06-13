@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "13.x"
-  }
+  },
   "description": "a web application that generates quizes based on user input",
   "main": "index.js",
   "scripts": {
