@@ -7,9 +7,7 @@
   "description": "a web application that generates quizes based on user input",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "postcss css/tailwind.css -o public/build/tailwind.css",
-    "heroku-postbuild": "postcss css/tailwind.css -o public/build/tailwind.css --prod"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
